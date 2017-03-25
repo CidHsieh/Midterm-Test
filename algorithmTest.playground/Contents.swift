@@ -3,17 +3,17 @@
 import UIKit
 
 var setArray = Set<Int>()
+var newArray:[Int] = []
 
 func sortArray(array1:[Int], array2:[Int]) -> [Int] {
-    
     setArray = Set(array1)
     for i in 0...array2.count - 1 {
         setArray.insert(array2[i])
     }
-    let newArray = Array<Int>(setArray)
+    newArray = Array<Int>(setArray)
     let sortedArray = NSMutableArray(array: newArray)
     var sortedAboveIndex = newArray.count
-    var swaps = 0
+    
     
     repeat {
         var lastSwapIndex = 0
@@ -21,7 +21,6 @@ func sortArray(array1:[Int], array2:[Int]) -> [Int] {
             if (sortedArray[j - 1 ] as! Int) > (sortedArray[j] as! Int) {
                 sortedArray.exchangeObject(at: j, withObjectAt: j - 1)
                 lastSwapIndex = j
-                swaps += 1
             }
         }
         sortedAboveIndex = lastSwapIndex
@@ -31,8 +30,6 @@ func sortArray(array1:[Int], array2:[Int]) -> [Int] {
     let finalArray = sortedArray as AnyObject as! [Int]
     return finalArray
 }
-
-
 
 
 
